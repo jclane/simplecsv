@@ -3,9 +3,7 @@ package me.justinlane.simplecsv;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-
 import java.nio.file.Path;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,8 +12,7 @@ import java.util.Scanner;
  * A simple CSV parser.
  *
  * @author Justin Lane
- * @version 4.0
- * @since 4.0
+ * @version 4.1
  */
 public class CSVReader {
   
@@ -107,4 +104,25 @@ public class CSVReader {
     return readLines(filePath, ",");
   }
 
+  /**
+   * Passes path of File object to read file using delimit as a delimiter.
+   * 
+   * @param file File object to read
+   * @param delimit String to use as a delimiter
+   * @return a list of lists with string values from the file
+ */
+  public static List<List<String>> readLines(File file, String delimit) throws FileNotFoundException {
+    return readLines(file.getPath(), delimit); 
+  }
+
+  /**
+   * Passes path of File object to read file using commas as a delimiter.
+   * 
+   * @param file File object to read
+   * @return a list of lists with string values from the file
+  */  
+  public static List<List<String>> readLines(File file) throws FileNotFoundException {
+    return readLines(file.getPath(), ","); 
+  }
+  
 }
